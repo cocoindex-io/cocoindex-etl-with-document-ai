@@ -10,7 +10,14 @@ In this example, we will walk you through how to build embedding index based on 
 
 ## Prerequisite
 - [Install Postgres](https://cocoindex.io/docs/getting_started/installation#-install-postgres) if you don't have one.
-- Get your [`LLAMA_CLOUD_API_KEY`](https://docs.cloud.llamaindex.ai/llamaparse/getting_started/get_an_api_key)
+- Configure Project and Processs ID for Document AI API
+    - [Official Google document AI API](https://cloud.google.com/document-ai/docs/try-docai)
+    - Sign in to [Google Cloud Console](https://console.cloud.google.com/), create or open a project, and enable Document AI API. 
+      ![Google Cloud Console](image/cloud-console.png)
+    - Create a processor in Document AI.
+      ![Create a processor in Document AI](image/create-processor.png)
+- update '.env' with `GOOGLE_CLOUD_PROJECT_ID` and `GOOGLE_CLOUD_PROCESSOR_ID`.
+
 
 ## Run
 
