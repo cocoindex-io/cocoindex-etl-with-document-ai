@@ -22,8 +22,6 @@ class DocumentAIExecutor:
 
     def prepare(self):
         # Initialize Document AI
-        # You need to set GOOGLE_APPLICATION_CREDENTIALS environment variable
-        # or explicitly create credentials and set project_id
         project_id = os.environ.get("GOOGLE_CLOUD_PROJECT_ID")
         location = os.environ.get("GOOGLE_CLOUD_LOCATION", "us")
         processor_id = os.environ.get("GOOGLE_CLOUD_PROCESSOR_ID")
