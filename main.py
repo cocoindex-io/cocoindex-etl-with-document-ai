@@ -64,7 +64,7 @@ def text_to_embedding(text: cocoindex.DataSlice) -> cocoindex.DataSlice:
         cocoindex.functions.SentenceTransformerEmbed(
             model="sentence-transformers/all-MiniLM-L6-v2"))
 
-@cocoindex.flow_def(name="DocumentAI-PDF-Embedding")
+@cocoindex.flow_def(name="DocumentAiPdfEmbedding")
 def pdf_embedding_flow(flow_builder: cocoindex.FlowBuilder, data_scope: cocoindex.DataScope):
     """
     Define an example flow that embeds files into a vector database.
