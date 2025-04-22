@@ -7,7 +7,7 @@ In this example, we will walk you through how to build embedding index based on 
 🥥 🌴 We are constantly improving - more blogs and examples coming soon. Stay tuned 👀 and **drop a star at [Cocoindex on Github](https://github.com/cocoindex-io/cocoindex)** for latest updates!
 [![GitHub](https://img.shields.io/github/stars/cocoindex-io/cocoindex?color=5B5BD6)](https://github.com/cocoindex-io/cocoindex)
 
-![Document AI Architecture](coco-doc-ai.png)
+![Use Document AI to parse PDF files in CocoIndex](image/coco-doc-ai.png)
 
 ## Prerequisite
 - [Install Postgres](https://cocoindex.io/docs/getting_started/installation#-install-postgres) if you don't have one.
