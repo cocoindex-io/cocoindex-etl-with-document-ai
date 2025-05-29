@@ -31,19 +31,19 @@ pip install -e .
 Setup:
 
 ```bash
-python main.py cocoindex setup
+cocoindex setup main.py
 ```
 
 Update index:
 
 ```bash
-python main.py cocoindex update
+cocoindex update main.py
 ```
 
 Run:
 
 ```bash
-python main.py
+cocoindex server -ci main.py
 ```
 
 ## CocoInsight 
