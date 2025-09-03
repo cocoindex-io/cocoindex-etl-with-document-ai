@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Extract and embed PDF documents using Google Document AI and Cocoindex."
 requires-python = ">=3.10"
 dependencies = [
-    "cocoindex>=0.2.3",
+    "cocoindex>=0.2.4",
     "python-dotenv>=1.0.1",
     "google-cloud-documentai>=2.20.1",
     "psycopg-pool>=0.1.0"

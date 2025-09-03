@@ -43,7 +43,7 @@ cocoindex update main.py
 Run:
 
 ```bash
-cocoindex server -ci main.py
+cocoindex server -ci main
 ```
 
 ## CocoInsight 
