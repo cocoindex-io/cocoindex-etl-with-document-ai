@@ -20,7 +20,6 @@ This example builds an embedding index from local PDF files, using [Google Docum
     - Create a processor in Document AI.
       ![Create a processor in Document AI](image/create-processor.png)
     - Authenticate locally so the client can pick up credentials: `gcloud auth application-default login`.
-- Fill in `.env` with your `GOOGLE_CLOUD_PROJECT_ID`, `GOOGLE_CLOUD_PROCESSOR_ID`, and (if not `us`) `GOOGLE_CLOUD_LOCATION`. `POSTGRES_URL` points at your pgvector database.
 
 ## Run
 
@@ -29,6 +28,14 @@ Install dependencies:
 ```bash
 pip install -e .
 ```
+
+Create your `.env` from the template and fill in your values:
+
+```bash
+cp .env.example .env
+```
+
+Set `GOOGLE_CLOUD_PROJECT_ID`, `GOOGLE_CLOUD_PROCESSOR_ID`, and (if not `us`) `GOOGLE_CLOUD_LOCATION`. `POSTGRES_URL` points at your pgvector database, and `COCOINDEX_DB` is the local engine state path.
 
 Build the index — parse each PDF with Document AI, chunk, embed, and write to Postgres:
 
@@ -58,14 +65,12 @@ Or start an interactive prompt:
 python main.py
 ```
 
-## CocoInsight
+## How it works
 
-CocoInsight is in early access (free 😊). A quick 3-minute tutorial: [Watch on YouTube](https://youtu.be/ZnmyoHslBSc?si=pPLXWALztkA710r9).
+The pipeline lives in [`main.py`](./main.py):
 
-Explore your pipeline — sources, transformations, and lineage — in the CocoInsight UI:
+- `pdf_to_markdown` — a memoized `@coco.fn` that parses each PDF with the Document AI async client (so the paid call isn't repeated for unchanged content).
+- `process_file` — reads each file, parses, chunks with `RecursiveSplitter`, and maps over chunks.
+- `process_chunk` — embeds the chunk with a SentenceTransformer model and declares a row in the Postgres `TableTarget`.
 
-```bash
-cocoindex server -ci main.py
-```
-
-Then open [https://cocoindex.io/cocoinsight](https://cocoindex.io/cocoinsight).
+Because every file is an independent component and the parse + embed steps are memoized, re-runs only touch what changed.
