@@ -1,11 +1,16 @@
 [project]
 name = "cocoindex-etl-with-document-ai"
 version = "0.1.0"
-description = "Extract and embed PDF documents using Google Document AI and Cocoindex."
-requires-python = ">=3.10"
+description = "CocoIndex v1 example: parse PDFs with Google Document AI, embed, and store in Postgres/pgvector."
+requires-python = ">=3.11"
 dependencies = [
-    "cocoindex>=0.2.4",
-    "python-dotenv>=1.0.1",
+    "cocoindex[postgres,sentence_transformers]>=1.0.7",
+    "asyncpg>=0.29.0",
+    "pgvector>=0.4.1",
+    "numpy",
     "google-cloud-documentai>=2.20.1",
-    "psycopg-pool>=0.1.0"
+    "python-dotenv>=1.0.1",
 ]
+
+[tool.setuptools]
+packages = []

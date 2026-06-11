@@ -1,1 +1,5 @@
-pdf_embedding.egg-info/
+cocoindex.db/
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
